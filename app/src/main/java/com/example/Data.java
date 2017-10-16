@@ -6,25 +6,41 @@ import android.app.Application;
 
 public class Data extends Application{
 
-    private boolean loginState; //state for login in or not
+    public boolean loginState; //state for login in or not
+    public String currentCity;
+
+    public Data(){
+        loginState = false;
+        currentCity = "未定位";
+    }
     /**
-     *description: set login state
+     *description: set/get login state
      *@author MicroBread on 2017/8/31 17:19
      *@param   state1
-     *@return   NULL
+     *          login state
      */
-    protected void setLoginState(boolean state1){
+    public void setLoginState(boolean state1){
 
         this.loginState = state1;
     }
-    /**
-     *description: get login state
-     *@author MicroBread on 2017/8/31 17:19
-     *@param   state1
-     *@return   boolean
-     */
-    protected boolean getLoginState(boolean state1){
+
+    public boolean getLoginState(){
 
         return this.loginState;
+    }
+    /**
+     *description: get/set current city
+     *@author MicroBread on 2017/10/16 14:00
+     *@param   cc
+     *          current city
+     */
+    public void setCurrentCity(String cc){
+
+        this.currentCity = cc;
+    }
+
+    public String getCurrentCity(){
+
+        return currentCity;
     }
 }
