@@ -1,15 +1,51 @@
 package com.example;
 
-import java.util.List;
+import android.text.TextUtils;
 
 /**
- * Created by meng on 2017/10/18.
+ * Created by shixi_tianrui1 on 16-9-25.
  */
-
 public class CityBean {
-        private int cityId;//城市id
-        private String cityName;//城市名
-        private int superiorId;//上级城市id
-        private List<CityBean> subordinateList;//下级城市集合
-        //忽略get/set方法
+    private int id;
+    private String name;
+    private String pinyin;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPinyin() {
+        return pinyin;
+    }
+
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin;
+    }
+
+    public String getFirstLetter() {
+        if (TextUtils.isEmpty(pinyin)) return null;
+        return pinyin.substring(0, 1);
+    }
+
+    @Override
+    public String toString() {
+        return "CityBean{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pinyin='" + pinyin + '\'' +
+                '}';
+    }
 }

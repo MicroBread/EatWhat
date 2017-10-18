@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.CityBean;
+import com.example.Util;
 
 import java.util.HashMap;
 import java.util.Iterator;
