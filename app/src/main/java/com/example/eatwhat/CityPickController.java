@@ -31,7 +31,7 @@ public class CityPickController implements LetterSideBar.OnTouchLetterListener {
         mRootView = root;
         mContext = context;
         initView();
-        mCities = DBManager.getInstance(mContext).getAllCities();
+        mCities = DBManager.getInstance(mContext).getAllCities();//
         mAdapter = new CityAdapter(mContext, mCities);
         mLvCityList.setAdapter(mAdapter);
     }
