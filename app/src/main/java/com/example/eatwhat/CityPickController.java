@@ -2,6 +2,7 @@ package com.example.eatwhat;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,9 +33,20 @@ public class CityPickController implements LetterSideBar.OnTouchLetterListener {
         mRootView = root;
         mContext = context;
         initView();
-        mCities = DBManager.getInstance(mContext).getAllCities();//
+        mCities = DBManager.getInstance(mContext).getAllCities();
         mAdapter = new CityAdapter(mContext, mCities);
         mLvCityList.setAdapter(mAdapter);
+        mLvCityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        break;
+                    case 8:
+                        break;
+                }
+            }
+        });
     }
 
     private void initView() {

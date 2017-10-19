@@ -3,7 +3,9 @@ package com.example;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,6 +19,9 @@ public class DBManager {
     private Context mContext;
     public final String DB_NAME = "china_cities.db";
     public final String DB_PATH;
+    //private static final String DATABASE_CREATE =
+    //        "create table "
+    //        + " city(id text primary key autoincrement,name text,pinyin text)";
 
     public interface CITY_COLUMN {
         String TAB_NAME = "city";
@@ -41,7 +46,6 @@ public class DBManager {
         mContext = context.getApplicationContext();
         DB_PATH = File.separator + "data" + Environment.getDataDirectory().getAbsolutePath() +
                 File.separator + mContext.getPackageName() + File.separator + "databases" + File.separator;
-        L.d(DB_PATH);
         loadDefaultCityList();
     }
 
@@ -70,13 +74,23 @@ public class DBManager {
     }
     //
     public List<CityBean> getAllCities() {
-        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DB_PATH + DB_NAME, null);
+        SQLiteDatabase database = null;
+        try {
+            File file = new File(DB_PATH + DB_NAME);
+            Log.d("exist1", DB_PATH+DB_NAME);
+            if(file.exists() && !file.isDirectory()) Log.d("exist", DB_PATH+DB_NAME);
+            file.setWritable(true);
+            database = SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null,SQLiteDatabase.OPEN_READWRITE);
+        }catch (SQLiteException e){
+
+        }
         Cursor cursor = database.query(CITY_COLUMN.TAB_NAME, null, null, null, null, null, "pinyin asc");
         List<CityBean> allCities = new ArrayList<>();
         while (cursor.moveToNext()) {
             allCities.add(cursor2Pojo(cursor));
         }
         cursor.close();
+        database.close();
         L.d(allCities.toString());
         return allCities;
     }

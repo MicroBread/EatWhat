@@ -42,13 +42,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         locationClient.registerLocationListener(new BDAbstractLocationListener() {
             @Override
             public void onReceiveLocation(BDLocation bdLocation) {
-                //Toast.makeText(HomeActivity.this,bdLocation.getAddrStr(),Toast.LENGTH_SHORT).show();
                 String cc;
                 cc = bdLocation.getAddrStr();
                 data.setCurrentCity(cc);
                 CharSequence cs = cc;
-                Button btn = (Button) findViewById(R.id.topbar_position_button);
-                btn.setText(cs);
+                setTopbarLocation(cs);
             }
         });
 
@@ -64,7 +62,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //TextView textView = (TextView) findViewById(R.id.marquee);
         //setTextMarquee(textView,"1");
     }
-
+    @Override
+    public void onResume(){
+        super.onResume();
+        setTopbarLocation(null);
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -80,6 +82,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.topbar_position_button:
                 Intent intent = new Intent(HomeActivity.this , CityListActivity.class);
                 startActivity(intent);
+                setTopbarLocation(null);
                 break;
         }
     }
@@ -98,5 +101,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         locationClientOption.disableCache(true);
         locationClient.setLocOption(locationClientOption);
         locationClient.start();
+    }
+
+    public void setTopbarLocation(CharSequence cs){
+        if(cs != null) {
+            Button btn = (Button) findViewById(R.id.topbar_position_button);
+            btn.setText(cs);
+        }else{
+            CharSequence cc = data.getCurrentCity();
+            Button btn = (Button) findViewById(R.id.topbar_position_button);
+            btn.setText(cc);
+        }
     }
 }
