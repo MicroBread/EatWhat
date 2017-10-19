@@ -68,7 +68,7 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-
+    //
     public List<CityBean> getAllCities() {
         SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(DB_PATH + DB_NAME, null);
         Cursor cursor = database.query(CITY_COLUMN.TAB_NAME, null, null, null, null, null, "pinyin asc");
