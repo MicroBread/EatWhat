@@ -2,9 +2,6 @@ package com.example;
 
 import android.text.TextUtils;
 
-/**
- * Created by shixi_tianrui1 on 16-9-25.
- */
 public class CityBean {
     private int id;
     private String name;
