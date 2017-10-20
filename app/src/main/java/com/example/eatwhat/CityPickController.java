@@ -1,6 +1,7 @@
 package com.example.eatwhat;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -8,9 +9,11 @@ import android.widget.TextView;
 
 import com.example.CityBean;
 import com.example.DBManager;
+import com.example.SharedPreferencesUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by meng on 2017/10/18.
@@ -39,12 +42,9 @@ public class CityPickController implements LetterSideBar.OnTouchLetterListener {
         mLvCityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-                        break;
-                    case 8:
-                        break;
-                }
+                String cn = mCities.get(position).getName();
+                SharedPreferencesUtil.putString(mContext,"currentCity",cn);
+
             }
         });
     }

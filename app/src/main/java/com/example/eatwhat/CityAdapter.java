@@ -16,8 +16,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Handler;
 
-import static com.baidu.location.h.k.L;
 
 /**
  * Created by meng on 2017/10/18.
@@ -47,7 +47,6 @@ public class CityAdapter extends BaseAdapter{
                 mLetterPos.put(cur, i);
             }
         }
-        //L.d(mLetterPos.toString());
     }
 
     @Override
@@ -102,7 +101,6 @@ public class CityAdapter extends BaseAdapter{
 
     @Override
     public int getItemViewType(int position) {
-//        L.d("getItemViewType : " + position);
         return position >= TYPE_VIEW_COUNT - 1 ? TYPE_CITY_ITEM : TYPE_SEARCH_VIEW;
     }
 

@@ -72,13 +72,11 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-    //
+
     public List<CityBean> getAllCities() {
         SQLiteDatabase database = null;
         try {
             File file = new File(DB_PATH + DB_NAME);
-            Log.d("exist1", DB_PATH+DB_NAME);
-            if(file.exists() && !file.isDirectory()) Log.d("exist", DB_PATH+DB_NAME);
             file.setWritable(true);
             database = SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null,SQLiteDatabase.OPEN_READWRITE);
         }catch (SQLiteException e){

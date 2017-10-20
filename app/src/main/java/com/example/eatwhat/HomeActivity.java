@@ -1,33 +1,25 @@
 package com.example.eatwhat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.example.Data;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapView;
 
+import com.example.SharedPreferencesUtil;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public Data data = new Data();
+    //private SharedPreferencesUtil spu;
     private static final String TAG = "HomeActivity";
-    //private MapView mapView;
-    //private BaiduMap baiduMap;
     private LocationClient locationClient;
 
     @Override
@@ -44,9 +36,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onReceiveLocation(BDLocation bdLocation) {
                 String cc;
                 cc = bdLocation.getAddrStr();
-                data.setCurrentCity(cc);
-                CharSequence cs = cc;
-                setTopbarLocation(cs);
+                SharedPreferencesUtil.putString(getApplicationContext(),"currentCity",cc);
+                if(cc != null)
+                    setTopbarLocation(cc);
             }
         });
 
@@ -63,9 +55,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //setTextMarquee(textView,"1");
     }
     @Override
-    public void onResume(){
-        super.onResume();
+    public void onRestart(){
+        super.onRestart();
         setTopbarLocation(null);
+        //Log.d(TAG, "onResume: currentCity: " + SharedPreferencesUtil.getString());
     }
     @Override
     public void onClick(View view) {
@@ -103,14 +96,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         locationClient.start();
     }
 
-    public void setTopbarLocation(CharSequence cs){
+    public void setTopbarLocation(String cs){
         if(cs != null) {
             Button btn = (Button) findViewById(R.id.topbar_position_button);
             btn.setText(cs);
         }else{
-            CharSequence cc = data.getCurrentCity();
-            Button btn = (Button) findViewById(R.id.topbar_position_button);
-            btn.setText(cc);
+            CharSequence cc = SharedPreferencesUtil.getString(getApplicationContext(),"currentCity","正在定位中...");
+            if(cc != null) {
+                Button btn = (Button) findViewById(R.id.topbar_position_button);
+                btn.setText(cc);
+            }
         }
     }
 }
