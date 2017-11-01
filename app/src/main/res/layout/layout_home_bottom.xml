@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:textColor="#cdcdcdcd"
             android:textSize="15px"
-            android:text="我"
+            android:text="我的"
             />
     </LinearLayout>
 

@@ -62,6 +62,7 @@ public class LetterSideBar extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        int lettterColor = 0xFFA54F;
         mWidth = getWidth();
         mHeight = getHeight();
         mPaint.setAntiAlias(true); // 抗锯齿
@@ -75,7 +76,8 @@ public class LetterSideBar extends View{
         mEachLetterWidth = (int) (mWidth / 2 - mPaint.measureText(mLetters.get(0)) / 2);
 //        Log.v("LOG", "eachLetterWidth:" + mEachLetterWidth);
         for (int i = 0; i < mLetters.size(); i++) {
-            mPaint.setColor(Color.RED);
+            mPaint.setColor(lettterColor);
+            mPaint.setAlpha(255);
             if (mSelectedIndex == i && mSelectedIndex != -1) {
                 mPaint.setColor(Color.CYAN); // 设置选中时的颜色
             }
