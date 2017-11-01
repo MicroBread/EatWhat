@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:background="#FFA54F">
         <Button
@@ -21,8 +21,14 @@
             android:maxLength="8"
             android:drawableLeft="@drawable/topbar_position_icon"
             android:background="#FFA54F"/>
-
-    </LinearLayout>
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:drawableLeft="@drawable/topbar_search_icon"
+            android:background="#FFA54F"
+            />
+    </RelativeLayout>
     <!-- marquee text
     <TextView
         android:id="@+id/marquee"

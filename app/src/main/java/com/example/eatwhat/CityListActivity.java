@@ -15,7 +15,6 @@ public class CityListActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_list);
-        mController = new CityPickController(this, findViewById(android.R.id.content));
-
+        mController = new CityPickController(this, findViewById(android.R.id.content), CityListActivity.this);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.eatwhat;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,13 +28,15 @@ public class CityPickController implements LetterSideBar.OnTouchLetterListener {
     private LetterSideBar mLsSidebar;
     private ListView mLvCityList;
     private Context mContext;
+    private Activity mActivity;
 
     private CityAdapter mAdapter;
 
     private List<CityBean> mCities = new ArrayList<>();
 
 
-    public CityPickController(Context context, View root) {
+    public CityPickController(Context context, View root, Activity activity) {
+        mActivity = activity;
         mRootView = root;
         mContext = context;
         initView();
@@ -44,7 +48,8 @@ public class CityPickController implements LetterSideBar.OnTouchLetterListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String cn = mCities.get(position).getName();
                 SharedPreferencesUtil.putString(mContext,"currentCity",cn);
-
+                Intent intent = new Intent(mActivity, HomeActivity.class);
+                mActivity.startActivity(intent);
             }
         });
     }
