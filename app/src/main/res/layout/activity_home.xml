@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,25 +9,30 @@
     <RelativeLayout
         android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
-        android:background="#FFA54F">
+        android:background="@color/colorMain">
         <Button
             android:id="@+id/topbar_position_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/topbar_margin"
+            android:layout_marginBottom="@dimen/topbar_margin"
             android:text="未定位"
             android:textSize="16sp"
             android:textColor="#ffffff"
             android:maxLength="8"
             android:drawableLeft="@drawable/topbar_position_icon"
-            android:background="#FFA54F"/>
+            android:background="#00000000"/>
         <Button
+            android:id="@+id/topbar_search_button"
             android:layout_width="40dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/topbar_margin"
+            android:layout_marginBottom="@dimen/topbar_margin"
             android:layout_alignParentRight="true"
             android:drawableLeft="@drawable/topbar_search_icon"
-            android:background="#FFA54F"
+            android:background="#00000000"
             />
     </RelativeLayout>
     <!-- marquee text
@@ -46,16 +52,28 @@
         android:layout_height="fill_parent"
         android:clickable="true" />
      -->
-    <android.support.v4.view.ViewPager
+    <android.support.v7.widget.LinearLayoutCompat
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_weight="1"
+        android:gravity="center"
+        android:weightSum="1">
 
-        </FrameLayout>
-    </android.support.v4.view.ViewPager>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/id_home_centerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="117dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.20"
+            android:background="@drawable/floatbutton_home"
+            android:src="@drawable/floatbutton_home128"
+            app:backgroundTint="@color/colorMain"
+            app:borderWidth="0dp"
+            app:elevation="8dp"
+            app:pressedTranslationZ="16dp"
+            app:rippleColor="#33728dff" />
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <include layout="@layout/layout_home_bottom" />
 </LinearLayout>

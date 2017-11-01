@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="side_bar_letter">12sp</dimen>
+
+    <dimen name="topbar_margin">10dp</dimen>
 </resources>

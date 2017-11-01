@@ -48,11 +48,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.search_home_imgbutton).setOnClickListener(this);
         findViewById(R.id.topbar_position_button).setOnClickListener(this);
 
-        //MapView mapView = null;
-        //mapView = (MapView) findViewById(R.id.bmapView);
 
-        //TextView textView = (TextView) findViewById(R.id.marquee);
-        //setTextMarquee(textView,"1");
     }
     @Override
     public void onRestart(){
@@ -76,6 +72,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(HomeActivity.this , CityListActivity.class);
                 startActivity(intent);
                 setTopbarLocation(null);
+                break;
+            case R.id.topbar_search_button:
                 break;
         }
     }
