@@ -1,10 +1,8 @@
 package com.example.eatwhat;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +12,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 
-import com.example.SharedPreferencesUtil;
+import com.example.utils.SharedPreferencesUtil;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,11 +64,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 //To do with search page
                 break;
             case R.id.me_home_imgbutton:
-                //To do with my page
+                Intent intent4 = new Intent(HomeActivity.this,MeActivity.class);
+                startActivity(intent4);
                 break;
             case R.id.topbar_position_button:
-                Intent intent = new Intent(HomeActivity.this , CityListActivity.class);
-                startActivity(intent);
+                Intent intent5 = new Intent(HomeActivity.this , CityListActivity.class);
+                startActivity(intent5);
                 setTopbarLocation(null);
                 break;
             case R.id.topbar_search_button:
@@ -94,6 +93,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         locationClient.start();
     }
 
+    /**
+    *description: set home page location button text with cs
+    *@author meng on 2017/10/19 13:31
+    *@param cs
+    *       cs: setting currentCity
+    */
     public void setTopbarLocation(String cs){
         if(cs != null) {
             Button btn = (Button) findViewById(R.id.topbar_position_button);

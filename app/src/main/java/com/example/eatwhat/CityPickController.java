@@ -3,7 +3,6 @@ package com.example.eatwhat;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.CityBean;
 import com.example.DBManager;
-import com.example.SharedPreferencesUtil;
+import com.example.utils.SharedPreferencesUtil;
 
 import java.util.ArrayList;
 import java.util.List;

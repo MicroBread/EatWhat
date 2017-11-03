@@ -1,4 +1,4 @@
-package com.example;
+package com.example.utils;
 
 /**
  * Created by meng on 2017/10/20.

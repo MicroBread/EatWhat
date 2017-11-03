@@ -6,4 +6,5 @@
     <dimen name="side_bar_letter">12sp</dimen>
 
     <dimen name="topbar_margin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

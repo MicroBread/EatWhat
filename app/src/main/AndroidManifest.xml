@@ -43,8 +43,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" android:launchMode="singleTask"/>
-        <activity android:name=".CityListActivity"></activity>
+        <activity
+            android:name=".HomeActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".CityListActivity" />
+        <activity
+            android:name=".MeActivity"
+            android:label="@string/title_activity_me"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
