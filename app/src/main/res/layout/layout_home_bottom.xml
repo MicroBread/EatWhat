@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="@drawable/bottombar_home"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true">
 
     <LinearLayout
         android:id="@+id/id_tab_weixin"
@@ -12,7 +13,6 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical" >
-        <!-- android:clickable="false" 是为了防止ImageButton截取了触摸事件 ，这里事件要给它的上一级linearlayout-->
         <ImageButton
             android:id="@+id/noddle_home_imgbutton"
             android:layout_width="wrap_content"
@@ -54,29 +54,6 @@
             android:text="发现"
             />
     </LinearLayout>
-
-   <!-- <LinearLayout
-        android:id="@+id/id_tab_frd"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical" >
-
-        <ImageButton
-            android:id="@+id/id_tab_frd_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:clickable="false"
-            android:src="@drawable/tab_find_frd_normal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="发现"
-            />
-    </LinearLayout>   -->
 
     <LinearLayout
         android:id="@+id/me_home_imgbutton"

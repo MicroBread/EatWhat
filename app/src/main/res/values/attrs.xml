@@ -3,5 +3,6 @@
     <declare-styleable name="com.exmaple.view.MeItemView">
         <!--item title in page "我的"-->
         <attr name="destitle" format="string"></attr>
+        <attr name="imageid" format="string"></attr>
     </declare-styleable>
 </resources>

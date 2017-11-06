@@ -1,6 +1,7 @@
 package com.example.eatwhat;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,8 +27,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_home);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
         initLocation();
         locationClient.registerLocationListener(new BDAbstractLocationListener() {
             @Override
@@ -45,6 +44,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.me_home_imgbutton).setOnClickListener(this);
         findViewById(R.id.search_home_imgbutton).setOnClickListener(this);
         findViewById(R.id.topbar_position_button).setOnClickListener(this);
+        findViewById(R.id.id_home_centerButton).setOnClickListener(this);
 
 
     }
@@ -74,8 +74,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.topbar_search_button:
                 break;
+            case R.id.id_home_centerButton:
+                //start frame animation
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.id_home_centerButton);
+                startframeAnimation(fab);
+                break;
         }
     }
+    /**
+    *description: start frame animation for home page center button
+    *@author MicroBread on 2017/11/6 10:50
+    *@param
+    *
+    */
+    private void startframeAnimation(FloatingActionButton fab) {
+        //button.
+    }
+
     /**
     *description: get the current location using BaiduMap API
     *@author meng on 2017/10/13 16:20
@@ -95,7 +110,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
     *description: set home page location button text with cs
-    *@author meng on 2017/10/19 13:31
+    *@author MicroBread on 2017/10/19 13:31
     *@param cs
     *       cs: setting currentCity
     */
