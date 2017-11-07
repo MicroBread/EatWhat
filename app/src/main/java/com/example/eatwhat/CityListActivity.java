@@ -21,7 +21,7 @@ public class CityListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_list);
-        if (isOpenLocation(getApplicationContext())) {
+        if (!isOpenLocation(getApplicationContext())) {
             openGPSSettings();
         }
         mController = new CityPickController(this, findViewById(android.R.id.content), CityListActivity.this);

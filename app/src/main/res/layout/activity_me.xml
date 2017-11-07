@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mi_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0">
+        </View>
+        <ImageView
+            android:id="@+id/image_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/default_profile_picture"
+            android:paddingTop= "5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"/>
+        <TextView
+            android:id="@+id/title_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/image_user"
+            android:layout_alignParentTop="true"
+            android:text="登陆/注册"
+            android:paddingTop= "8dp"
+            android:paddingBottom="5dp"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/me_arrow"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0">
+        </View>
+    </RelativeLayout>
 
     <com.example.view.MeItemView
         xmlns:example="http://schemas.android.com/apk/res/com.example.eatwhat"
         android:id="@+id/mi_collect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/mi_user"
         example:imageid="me_collect"
         example:destitle="收藏">
     </com.example.view.MeItemView>
@@ -21,11 +67,12 @@
         android:id="@+id/mi_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="1dp"
         android:layout_below="@id/mi_collect"
         example:imageid="me_setting"
         example:destitle="设置">
     </com.example.view.MeItemView>
+
     <include layout="@layout/layout_home_bottom" />
 </RelativeLayout>

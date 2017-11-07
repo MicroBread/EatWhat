@@ -7,7 +7,6 @@ public class CityBean {
     private String name;
     private String pinyin;
 
-
     public int getId() {
         return id;
     }

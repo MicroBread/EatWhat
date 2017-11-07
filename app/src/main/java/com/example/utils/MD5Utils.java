@@ -23,8 +23,7 @@ public class MD5Utils {
                 }
                 stringBuffer.append(hexString);
             }
-            String ans = stringBuffer.toString();
-            return ans;
+            return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

@@ -7,7 +7,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#6C7B8B">
+        android:background="#F0F0F0">
     </View>
     <ImageView
         android:id="@+id/image_me"
@@ -36,6 +36,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#6C7B8B">
+        android:background="#F0F0F0">
     </View>
 </RelativeLayout>

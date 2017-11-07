@@ -32,14 +32,14 @@
         android:id="@+id/loginButton_loginActivity"/>
 
     <Button
-    android:layout_width="wrap_content"
-    android:layout_height="40dp"
-    android:layout_gravity="center_horizontal|center_vertical|center"
-    android:text="ops...I forget my password"
-    android:layout_marginTop="10dip"
-    android:background="@android:color/transparent"
-    android:textColor="#8f8f8f"
-    android:id="@+id/forgetButton_loginActivity"/>
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal|center_vertical|center"
+        android:text="ops...I forget my password"
+        android:layout_marginTop="10dip"
+        android:background="@android:color/transparent"
+        android:textColor="#8f8f8f"
+        android:id="@+id/forgetButton_loginActivity"/>
 
     <Button
         android:layout_width="wrap_content"

@@ -7,7 +7,7 @@
     android:layout_alignParentBottom="true">
 
     <LinearLayout
-        android:id="@+id/id_tab_weixin"
+        android:id="@+id/id_tab_home_img"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -25,13 +25,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#cdcdcdcd"
-            android:textSize="15px"
+            android:textSize="13sp"
             android:text="首页"
             />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/search_home_imgbutton"
+        android:id="@+id/id_tab_search_img"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -39,7 +39,7 @@
         android:orientation="vertical" >
 
         <ImageButton
-            android:id="@+id/id_tab_address_img"
+            android:id="@+id/search_home_imgbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00000000"
@@ -50,13 +50,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#cdcdcdcd"
-            android:textSize="15px"
+            android:textSize="13sp"
             android:text="发现"
             />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/me_home_imgbutton"
+        android:id="@+id/id_tab_me_img"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -64,7 +64,7 @@
         android:orientation="vertical" >
 
         <ImageButton
-            android:id="@+id/id_tab_settings_img"
+            android:id="@+id/me_home_imgbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00000000"
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#cdcdcdcd"
-            android:textSize="15px"
+            android:textSize="13sp"
             android:text="我的"
             />
     </LinearLayout>
