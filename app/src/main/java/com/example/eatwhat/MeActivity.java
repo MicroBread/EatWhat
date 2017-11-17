@@ -9,7 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.utils.SharedPreferencesUtil;
 
 /**
 *description: Activity for page "我的"
@@ -22,10 +25,7 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
-        //change buttom bar icon
-        ImageButton imageButton = (ImageButton) findViewById(R.id.me_home_imgbutton);
-        int resid = getResources().getIdentifier("me_home_change","drawable","com.example.eatwhat");
-        imageButton.setImageResource(resid);
+        initUI();
 
         //set listener for control
         findViewById(R.id.mi_collect).setOnClickListener(this);
@@ -34,12 +34,25 @@ public class MeActivity extends AppCompatActivity implements View.OnClickListene
         findViewById(R.id.noddle_home_imgbutton).setOnClickListener(this);
     }
 
+    private void initUI() {
+        //change buttom bar highlight icon
+        ImageButton imageButton = (ImageButton) findViewById(R.id.me_home_imgbutton);
+        int resid = getResources().getIdentifier("me_home_change","drawable","com.example.eatwhat");
+        imageButton.setImageResource(resid);
+
+        //if user is logged then change login/register item showing user name
+        String cu = SharedPreferencesUtil.getString(getApplicationContext(),"currentUser",null);
+       if(cu != null){
+           TextView tv = (TextView)findViewById(R.id.title_me);
+           tv.setText(cu);
+       }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.mi_collect:
                 //startActivity(new Intent(MeActivity.this,xxx.class));
-                //设置切换动画
                 //overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
                 break;
             case R.id.mi_setting:
